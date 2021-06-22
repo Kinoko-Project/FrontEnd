@@ -42,9 +42,10 @@ const PyogoStyled = styled.div`
 `;
 
 const PyogoGraphBox = styled.div`
-    padding: 30px;
     height: 500px;
     border-bottom: 1px solid gray;
+    padding: 30px;
+    margin: 5px;
 `;
 
 const FooterBox = styled.div`

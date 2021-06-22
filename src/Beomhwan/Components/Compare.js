@@ -35,7 +35,7 @@ const BackButton = styled(RiArrowGoBackLine)`
     }
     transition-duration: 0.2s;
     position: absolute;
-    top: 0;
+    top: 20px;
 `;
 
 const Water = styled(GiWaterDrop)`
@@ -65,6 +65,7 @@ const CompareListBox = styled.div`
 `;
 
 const ChartBox = styled.div`
+    padding-top: 30px;
     flex: 4;
     height: 100%;
 `;
@@ -80,7 +81,8 @@ const CompareBox = styled.div`
     float: left;
     width: ${p=>p.width}px;
     height: 100%;
-    ${flexAlign}
+    ${flexAlign};
+    padding-top: 10px;
 `;
 
 const CardFlex = styled.div`

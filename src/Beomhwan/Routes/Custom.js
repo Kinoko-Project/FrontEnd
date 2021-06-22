@@ -9,7 +9,10 @@ import {flexAlign} from '../../Util/css';
 import {deleteCustomProgram, getCustomProgramList, startCustomProgram} from '../api';
 import {useKinokoState} from '../../KinokoContext';
 
-
+const maintainTrueOptions = {
+    ...options,
+    maintainAspectRatio: true,
+}
 
 // 환경 그래프 반환
 const LineChart = ({chartData}) => {
@@ -17,7 +20,7 @@ const LineChart = ({chartData}) => {
     const ChartRef = useRef(null);
 
     return (
-        <Line data={chartData} options={options} ref={ChartRef}/>
+        <Line data={chartData} options={maintainTrueOptions} ref={ChartRef}/>
     ) ;
 };
 
