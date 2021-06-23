@@ -254,7 +254,7 @@ const Update = ({cookies, history}) => {
     if(loading) return <LoadingContainer>Loading...</LoadingContainer>
 
     if(!programInfo) {
-        alert('현재 진행중인 프로그램이 없습니다! 환경을 ');
+        alert('현재 진행중인 프로그램이 없습니다!');
         return (<Redirect to="/setting/custom" />);
     }
 

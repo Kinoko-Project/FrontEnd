@@ -301,7 +301,7 @@ const Compare = ({goSlide, chart}) => {
                                             </div>
                                         </div>
                                     </StatusCard>
-                                    <StatusCard>
+                                    {/* <StatusCard>
                                         <div class="side front">
                                             <div class="descrition">
                                                 <Sun /> 
@@ -312,7 +312,7 @@ const Compare = ({goSlide, chart}) => {
                                                 {ch.prg_sunshine}회
                                             </div>
                                         </div>
-                                    </StatusCard>
+                                    </StatusCard> */}
                                 </ButtonContainer>
                             </ExtraInfoBox>
                         </DescriptionBox>    

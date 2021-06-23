@@ -224,7 +224,7 @@ export default function MyFarm(){
       // 오늘 자란 버섯 수
       setTodayMushroom(num)
       //소캣 통신을 위한 변수 / 프로그램 id가 있으면 소캣 통신 합니다. 
-      setValue(false)
+      setValue(true)
     } 
 
     console.log(StartDay,'date');
@@ -376,7 +376,7 @@ export default function MyFarm(){
                         <div className='soket-title'><span>실시간 영상</span></div>
                         {image && <img src={image} alt='실시간 통신'/>}
 
-                        <img src={logoimg1} alt='logo' className='logo1'/>
+                        {/* <img src={logoimg1} alt='logo' className='logo1'/> */}
                       </div>
                     </div>
 
