@@ -352,14 +352,14 @@ export default function MyFarm(){
             <div className='myfarm-right'>
               <div className='right-wrap'>
                 {nodivice && <span >등록된 기기가 없습니다. 기기를 등록해 주세요</span>}
-                {loading && <span >Loding...</span>}
+                {loading && <span >Loading...</span>}
                 
                 {!nodivice && !loading && isOkDeviceId !==202 && <span >선택된 기기가 없습니다. 기기를 선택해 주세요</span>}
-                {!loading && !nodivice && loadingDeviceId  && <span >Loding...</span>}
-                {!loading && !nodivice && isOkDeviceId ===202 &&!loadingDeviceId  && loadingProgramInfo && <span >Loding...</span>}
+                {!loading && !nodivice && loadingDeviceId  && <span >Loading...</span>}
+                {!loading && !nodivice && isOkDeviceId ===202 &&!loadingDeviceId  && loadingProgramInfo && <span >Loading...</span>}
                 
                 {!nodivice && !loading && isOkDeviceId === 202 &&  isOkProgramInfo !== 202 && !loadingProgramInfo && <span>선택된 프로그램이 없습니다. 팜 환경 설정에서 프로그램을 선택해 주세요</span>}
-                {!loading && !nodivice && !loadingDeviceId && isOkProgramInfo === 202  && startLoading &&<span>Loding...</span>}
+                {!loading && !nodivice && !loadingDeviceId && isOkProgramInfo === 202  && startLoading &&<span>Loading...</span>}
                 {/* !nodivice &&  임의로 지정*/}
                 
                 {!nodivice && !loading && programInfo && !startLoading &&
