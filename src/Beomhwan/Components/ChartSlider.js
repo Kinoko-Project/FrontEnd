@@ -40,7 +40,7 @@ const CompareBox = styled.div`
 // 차트의 전체 div
 const ChartContainer = styled.div`
     width: ${p=>p.width}px;
-    height: 400px;
+    height: 350px;
     transition-duration: 0.5s;
     transform: translate3d(-${props => props.x}px,0,0);
 `;
@@ -48,7 +48,7 @@ const ChartContainer = styled.div`
 // 차트 리스트 박스 div
 const ChartListBox = styled.div`
     width: ${props => props.width}px;
-    height: 400px;
+    height: 350px;
     overflow: hidden;
 `;
 
@@ -56,7 +56,7 @@ const ChartListBox = styled.div`
 const ChartContentBox = styled.div`
     float: left;
     width: 400px;
-    height: 100%;
+    height: 350px;
     display: flex;
     flex-direction: column;
     border: ${p=>p.toggle ? '2px solid #7FDBDA' : '2px solid #dddddd'};

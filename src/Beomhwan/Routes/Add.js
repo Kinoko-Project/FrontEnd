@@ -260,7 +260,7 @@ const ButtonBox = ({Add, Remove}) => {
 // 전체 박스
 const CustomAddDiv = styled.div`
     width: 100%;
-    height: 500px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
 `;
@@ -545,7 +545,7 @@ const Add = ({history}) => {
                 <SettingBox>
                 <CheckBox>
                     <CheckMenu>
-                        <WarningText>온도는 35도 이하로 제한됩니다.</WarningText>
+                        <WarningText>온도는 27도 미만으로 제한됩니다.</WarningText>
                         {chartData.map((ch,index) => {
                             if(ch.Temperature > 27)
                                 return <LogBox>{ch.Date} 온도가 27도 이상입니다!</LogBox>

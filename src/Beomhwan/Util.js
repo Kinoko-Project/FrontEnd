@@ -32,7 +32,7 @@ export const setChartjsDataset = (date, temp, humi, growth) => {
 
 // 기본 custom chart의 options 설정
 export const options = {
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     tooltips: {
         mode: 'index',
         intersect: false,
