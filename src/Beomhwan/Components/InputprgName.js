@@ -18,7 +18,7 @@ const InputPrgName = ({onChange}) => {
     return (
         <Input 
             onChange={onChange}
-            placeholder="프로그램 이름을 등록해주세요"
+            placeholder="プログラム名を入力してください"
         />
     );
 };
