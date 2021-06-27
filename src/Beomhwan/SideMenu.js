@@ -25,7 +25,7 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-    font-size: 1.2em;
+    font-size: 14px;
     text-align: center;
     border: 2px solid rgba(160,156,128,0.9);
     width: 100px;
@@ -59,7 +59,7 @@ const SideMenu = ({pathname}) => {
                 </LinkStyled>
                 <LinkStyled to={SETTING + BAEKHWAGO}>
                     <Li style={pathname === '/setting/baekhwago' ? {background: 'rgba(160,156,128,0.9)', color: 'white'} : {}}>
-                        백화고
+                        ベクファゴ
                     </Li>
                 </LinkStyled>
                 <LinkStyled to={SETTING + CUSTOM}>

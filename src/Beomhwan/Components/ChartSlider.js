@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Line } from 'react-chartjs-2';
 import styled, {css} from 'styled-components';
 import { flexAlign } from '../../Util/css';

@@ -9,22 +9,22 @@ import {BoxShadowTrick} from '../css/cssModule';
 
 // 백화고차트 데이터
 const BaekhwagoData = {
-    labels: ['1단계','2단계','3단계','4단계','5단계'],
+    labels: ['1段階','2段階','3段階','4段階','5段階'],
     datasets: [
         {
-            label: '일출 후 온도',
+            label: '日の出後温度',
             data: [20, 20, 17, 15, 15],
             fill: false,
             borderColor: '#FB9300'
         },
         {
-            label: '일몰 후 온도',
+            label: '日没後温度',
             data: [20, 15, 13, 10, 5],
             fill: false,
             borderColor: '#D83A56'
         },
         {
-            label: '습도',
+            label: '湿度',
             data: [90, 70, 60, 50, 40],
             fill: false,
             borderColor: '#00BCD4'
@@ -120,11 +120,11 @@ const GrowStartButton = styled.button`
 const Baekhwago = () => {
     const [opacity, setOpacity] = useState(0);
     const BaekhwaText = {
-        title: '주의',
-        caution1: '설정하시면 도중에 환경 변경이 불가능합니다.',
-        caution2: '재배를 시작하시겠습니까?',
-        waterText: '물 주기 횟수 : ',
-        sunText: '채광 횟수 : '
+        title: '注意！',
+        caution1: '設定すると途中で環境変更が不可能です。',
+        caution2: '栽培を開始しますか？',
+        waterText: '水やり回数 : ',
+        sunText: '採光回数 : '
     }
 
     const onModal = () => {
@@ -148,7 +148,7 @@ const Baekhwago = () => {
                     <BaekhwagoTimeline />
                 </Description>
                 <GrowStartButtonBox>
-                    <GrowStartButton onClick={onModal}>적용</GrowStartButton>
+                    <GrowStartButton onClick={onModal}>適用</GrowStartButton>
                 </GrowStartButtonBox>
             </FooterBox>
         </FullBox>

@@ -9,16 +9,16 @@ import ModalContent from '../Components/ModalContent';
 import PyogoTimeLine from '../Components/PyogoTimeLine';
 
 const data = {
-    labels: ['1일차','2일차','3일차','4일차','5일차','6일차','7일차','8일차','9일차','10일차','11일차','12일차','13일차','14일차'],
+    labels: ['1日目','2日目','3日目','4日目','5日目','6日目','7日目','8日目','9日目','10日目','11日目','12日目','13日目','14日目'],
     datasets: [
         {
-            label: '온도',
+            label: '温度',
             data: [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25,],
             fill: false,
             borderColor: '#EC5858',
         },
         {
-            label: '습도',
+            label: '湿度',
             data: [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, ],
             fill: false,
             borderColor: '#00BCD4',
@@ -82,7 +82,7 @@ const GrowStartButton = styled.button`
 const ModalOnButton = ({onModal}) => {
     return (
         <GrowStartButton onClick={onModal}>
-            적용
+            適用
         </GrowStartButton>
     )
 } 
@@ -90,14 +90,14 @@ const ModalOnButton = ({onModal}) => {
 const Pyogo = () => {
     const [opacity, setOpacity] = useState(0);
     const PyogoModalText = {
-        title: '표고버섯 환경 프로그램 적용',
+        title: 'シイタケ環境プログラム適用',
         caution1: `
-            일정한 환경에서 표고버섯 재배를 실시합니다.
-            물 주는 횟수는 8시간에 1회 입니다.
+            一定の環境でシイタケの栽培を実施します。
+            水をやる回数は8時間に1回です。
         `,
-        caution2: '재배를 시작하시겠습니까?',
-        waterText: '물 주기 횟수 : 3회',
-        sunText: '채광 횟수 : 0회'
+        caution2: '栽培を開始しますか？',
+        waterText: '水やり回数：3回',
+        sunText: '採光回数：0回'
     }
 
     const onModal = () => {
@@ -121,7 +121,7 @@ const Pyogo = () => {
                     <PyogoTimeLine />
                 </Description>
                 <GrowStartBox>
-                    <ModalOnButton onModal={onModal}>적용</ModalOnButton>
+                    <ModalOnButton onModal={onModal}>適用</ModalOnButton>
                </GrowStartBox>
             </FooterBox>
         </PyogoStyled>

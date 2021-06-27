@@ -94,8 +94,8 @@ const ModalContent = ({chartname, text, onClose}) => {
                     プログラム : {programInfo[0].prg_name}
                 </ProgramRunningContentBox>
                 <ModalFooter>
-                    <Button onClick={onClose}> 확인 </Button>
-                    <Button onClick={onClose}> 취소 </Button>
+                    <Button onClick={onClose}> 確認 </Button>
+                    <Button onClick={onClose}> キャンセル </Button>
                 </ModalFooter>
             </>
         )

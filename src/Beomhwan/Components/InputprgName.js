@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexAlign } from '../../Util/css';
 
 const Input = styled.input`
     width: 300px;

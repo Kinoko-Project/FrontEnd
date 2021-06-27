@@ -30,44 +30,44 @@ const BaekhwagoTimeline = () => {
         chart.maskBullets = false;
 
         let title = chart.titles.create();
-        title.text = '백화고 단계 기준 : 라인에 마우스를 올려보세요!';
+        title.text = 'ベクファゴ 段階基準：ラインにマウスをのせてください！';
         title.fontSize = 20;
 
         chart.data = [
             { 
-                category: "진행 단계", 
+                category: "進行段階", 
                 openValue: 0, 
                 endValue: 1,
-                stage: '1단계',
-                description: '1단계에서는 버섯 갓 길이가 1cm 이하입니다.'
+                stage: '1段階',
+                description: '1段階ではキノコの高菜の長さが1cm以下です。'
             },
             { 
-                category: "진행 단계", 
+                category: "進行段階", 
                 openValue: 1, 
                 endValue: 2,
-                stage: '2단계',
-                description: '2단계에서는 버섯 갓 길이가 1cm ~ 2cm 입니다.'
+                stage: '2段階',
+                description: '2段階ではキノコの高菜の長さが1cm~2cmです。'
             },
             { 
-                category: "진행 단계", 
+                category: "進行段階", 
                 openValue: 2, 
                 endValue: 3,
-                stage: '3단계',
-                description: '3단계에서는 버섯 갓 길이가 2cm ~ 4cm 입니다.'
+                stage: '3段階',
+                description: '3段階ではキノコの高菜の長さが2cm~4cmです。'
             },
             { 
-                category: "진행 단계", 
+                category: "進行段階", 
                 openValue: 3, 
                 endValue: 4,
-                stage: '4단계',
-                description: '4단계에서는 버섯 갓 길이가 4cm ~ 5cm 입니다.'
+                stage: '4段階',
+                description: '4段階ではキノコの高菜の長さが4cm~5cmです。'
             },
             { 
-                category: "진행 단계", 
+                category: "進行段階", 
                 openValue: 4, 
                 endValue: 5,
-                stage: '5단계',
-                description: '5단계에서는 버섯 갓 길이가 5cm 초과입니다.'
+                stage: '5段階',
+                description: '5段階ではキノコの高笠の長さが5cmを超えます。'
             },
         ];
 
