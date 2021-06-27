@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Line } from 'react-chartjs-2';
 import styled, {css} from 'styled-components';
 import { flexAlign } from '../../Util/css';
@@ -190,7 +190,7 @@ const ChartSilder = () => {
                     
                     // 온도 데이터
                     data.temperature.forEach((temp,index) => {
-                        dateArr.push((index + 1) + "일차");
+                        dateArr.push((index + 1) + "日");
                         tempArr.push(temp.setting_value);
                     });
                     // 습도 데이터
@@ -271,7 +271,7 @@ const ChartSilder = () => {
     if(chart.length === 0) 
         return (
             <NoGraphSelected>
-                현재 생성된 커스텀 그래프가 없습니다!
+                現在作られたカスタムチャートがございません。
             </NoGraphSelected>
         );
 
@@ -286,7 +286,7 @@ const ChartSilder = () => {
                         <ChartContentBox toggle={ch.toggle} key={index}>
                             <ChartDescription>
                             <ProgramTitle>- {ch.prg_name} -</ProgramTitle>
-                            <CountContainer>{ch.prg_count}회 사용</CountContainer>
+                            <CountContainer>{ch.prg_count}回使用</CountContainer>
                             <RadioButton toggle={ch.toggle} onClick={() => onToggle(ch.prg_id)}>
                                 <CheckIcon opacity={ch.toggle} />
                             </RadioButton>
@@ -303,7 +303,7 @@ const ChartSilder = () => {
                         <ControlButton onClick={onLeft}><PreviousIcon /></ControlButton>
                         <ControlButton onClick={onRight}><NextIcon /></ControlButton>
                     </SlideControlContainer>
-                    <DetailButton onClick={changeComponent}>상세</DetailButton>
+                    <DetailButton onClick={changeComponent}>詳細</DetailButton>
                 </ControlContainer>
                 </>
             : 

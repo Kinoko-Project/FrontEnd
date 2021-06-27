@@ -7,19 +7,19 @@ export const setChartjsDataset = (date, temp, humi, growth) => {
         labels: date,
         datasets: [
             {
-                label: '온도',
+                label: '温度',
                 data: temp,
                 fill: false,
                 borderColor: 'rgba(255,0,0,0.3)'
             },
             {
-                label: '습도',
+                label: '湿度',
                 data: humi,
                 fill: false,
                 borderColor: 'rgba(0,0,255,0.3)'
             },
             {
-                label: '생장률',
+                label: '成長率',
                 data: growth,
                 fill: false,
                 borderColor: 'gray'

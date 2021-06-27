@@ -88,14 +88,14 @@ const ModalContent = ({chartname, text, onClose}) => {
         return (
             <>
                 <ModalTitleBox>
-                    이미 실행중인 프로그램이 있습니다!
+                    実行中のプログラムがあります！
                 </ModalTitleBox>
                 <ProgramRunningContentBox>
-                    실행중인 프로그램 : {programInfo[0].prg_name}
+                    プログラム : {programInfo[0].prg_name}
                 </ProgramRunningContentBox>
                 <ModalFooter>
-                    <Button onClick={onClose}> 확인 </Button>
-                    <Button onClick={onClose}> 취소 </Button>
+                    <Button onClick={onClose}> 確認 </Button>
+                    <Button onClick={onClose}> キャンセル </Button>
                 </ModalFooter>
             </>
         )
@@ -126,8 +126,8 @@ const ModalContent = ({chartname, text, onClose}) => {
             </ModalEnvInfoBox>
         </ModalContentBox>
         <ModalFooter>
-            <Button onClick={onClose}> 적용 </Button>
-            <Button onClick={onClose}> 취소 </Button>
+            <Button onClick={onClose}> 適用 </Button>
+            <Button onClick={onClose}> キャンセル </Button>
         </ModalFooter>
         </>
     );

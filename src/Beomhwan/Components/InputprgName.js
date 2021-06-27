@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { flexAlign } from '../../Util/css';
 
 const Input = styled.input`
     width: 300px;
@@ -18,7 +17,7 @@ const InputPrgName = ({onChange}) => {
     return (
         <Input 
             onChange={onChange}
-            placeholder="프로그램 이름을 등록해주세요"
+            placeholder="プログラム名を入力してください"
         />
     );
 };

@@ -54,19 +54,19 @@ const Select = ({count, sunChange, waterChange}) => {
     console.log(count);
     return (
         <Container>
-            {/* <SelectBox>
-                <div>일조 횟수</div>
+            <SelectBox>
+                <div>日照回数</div>
                 <SelectEnvi>
                 <UpDown onClick={() => sunChange('-')}> <MinusIcon /> </UpDown>
-                <NumBox>{count.sunCount}번</NumBox>
+                <NumBox>{count.sunCount}回</NumBox>
                 <UpDown onClick={() => sunChange('+')}> <PlusIcon /> </UpDown>
                 </SelectEnvi>
-            </SelectBox> */}
+            </SelectBox>
             <SelectBox>
-                <div>물 주기 횟수</div>
+                <div>水やり回数</div>
                 <SelectEnvi>
                 <UpDown onClick={() => waterChange('-')}> <MinusIcon /> </UpDown>
-                <NumBox>{count.waterCount}번</NumBox>
+                <NumBox>{count.waterCount}回</NumBox>
                 <UpDown onClick={() => waterChange('+')}> <PlusIcon /> </UpDown>
                 </SelectEnvi>
             </SelectBox>

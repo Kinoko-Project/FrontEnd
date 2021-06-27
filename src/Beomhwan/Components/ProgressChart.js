@@ -56,7 +56,7 @@ const ProgressChart = () => {
             let title = chart.titles.create();
             title.text = programInfo[0].prg_name;
             title.fontSize = 20;
-            title.tooltipText = "당일데이터는 1시간 단위로 측정 중입니다.";
+            title.tooltipText = "当日のデータは一時間単位で測定中です。";
 
             // data 부터 받아오기
             chart.dataSource.url = `${URL}/api/myfarm/data/hour?prgId=${programInfo[0].id}`;
@@ -102,8 +102,8 @@ const ProgressChart = () => {
                 ev.target.data = chart;
 
                 if(programInfo[0].id === 0 && programInfo[0].prg_name === '') {
-                    title.text = '현재 환경 프로그램이 실행 되고 있지 않습니다.';
-                    chart.tooltipText = '버섯을 재배할 준비를 마친 후 팜 환경설정에서 프로그램을 시작해주세요.'
+                    title.text = '現在環境プログラムが実行されていません。';
+                    chart.tooltipText = 'キノコを栽培する準備を終えたら、ファーム環境設定でプログラムを開始してください。'
                 }
             })
 
@@ -118,7 +118,7 @@ const ProgressChart = () => {
             // X축 생성
             let categoryAxis = chart.xAxes.push(new am4charts.DateAxis());
             categoryAxis.dataFields.category = 'Date';
-            categoryAxis.title.text = "일자";
+            categoryAxis.title.text = "日目";
             categoryAxis.renderer.axisFills.template.disabled = false;
             categoryAxis.renderer.axisFills.template.fill = am4core.color('rgba(0,0,0,0.4)');
             categoryAxis.renderer.axisFills.template.fillOpacity = 0.2;
@@ -126,7 +126,7 @@ const ProgressChart = () => {
             // Y축 생성
             let tempAxis = chart.yAxes.push(new am4charts.ValueAxis());
             tempAxis.dataFields.data = 'Temp';
-            tempAxis.title.text = "온도 / 습도";
+            tempAxis.title.text = "温度 / 湿度";
 
             let humiAxis = chart.yAxes.push(new am4charts.ValueAxis());
             humiAxis.dataFields.data = 'Humi';
@@ -136,7 +136,7 @@ const ProgressChart = () => {
 
             // 시리즈 생성
             let tempSeries = chart.series.push(new am4charts.LineSeries());
-            tempSeries.name = '온도';
+            tempSeries.name = '温度';
             tempSeries.dataFields.valueY = 'Temp';
             tempSeries.dataFields.dateX = 'Date';
             tempSeries.stroke = am4core.color('rgba(255,0,0,0.5)');
@@ -147,7 +147,7 @@ const ProgressChart = () => {
             tempSeries.fill = am4core.color('rgba(255,0,0,1)');
             
             let humiSeries = chart.series.push(new am4charts.LineSeries());
-            humiSeries.name = '습도';
+            humiSeries.name = '湿度';
             humiSeries.dataFields.valueY = 'Humi';
             humiSeries.dataFields.dateX = 'Date';
             humiSeries.stroke = am4core.color('rgba(0,0,255,0.5)');
@@ -158,7 +158,7 @@ const ProgressChart = () => {
             humiSeries.tooltipText = "{dateX.formatDate('MM-dd HH:mm')} : {valueY}%";
 
             let growSeries = chart.series.push(new am4charts.LineSeries());
-            growSeries.name = '생장률';
+            growSeries.name = '成長率';
             growSeries.dataFields.valueY = 'Grow';
             growSeries.dataFields.dateX = 'Date';
             growSeries.strokeWidth = 0;
@@ -196,7 +196,7 @@ const ProgressChart = () => {
     }
 
     if(!programInfo) {
-        return <Msg>현재 프로그램이 실행 되고 있지 않습니다.</Msg>
+        return <Msg>現在プログラムが実行されていません。</Msg>
     }
 
     return (

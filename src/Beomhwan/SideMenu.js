@@ -25,7 +25,7 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li`
-    font-size: 1.2em;
+    font-size: 14px;
     text-align: center;
     border: 2px solid rgba(160,156,128,0.9);
     width: 100px;
@@ -54,27 +54,27 @@ const SideMenu = ({pathname}) => {
             <Ul>
                 <LinkStyled to={SETTING}>
                     <Li style={pathname === '/setting' ? {background: 'rgba(160,156,128,0.9)', color: 'white'} : {}}>
-                        표고버섯
+                        しいたけ
                     </Li>
                 </LinkStyled>
                 <LinkStyled to={SETTING + BAEKHWAGO}>
                     <Li style={pathname === '/setting/baekhwago' ? {background: 'rgba(160,156,128,0.9)', color: 'white'} : {}}>
-                        백화고
+                        ベクファゴ
                     </Li>
                 </LinkStyled>
                 <LinkStyled to={SETTING + CUSTOM}>
                     <Li style={pathname === '/setting/custom' ? {background: 'rgba(160,156,128,0.9)', color: 'white'} : {}}>
-                        커스텀
+                        カスタム
                     </Li>
                 </LinkStyled>
                 <LinkStyled to={SETTING + SETTING_ADD}>
                     <Li style={pathname === '/setting/add' ? {background: 'rgba(160,156,128,0.9)', color: 'white'} : {}}>
-                        환경 추가
+                        環境追加
                     </Li>
                 </LinkStyled>
                 <LinkStyled to={SETTING + SETTING_UPDATE}>
                     <Li style={pathname === '/setting/update' ? {background: 'rgba(160,156,128,0.9)', color: 'white'} : {}}>
-                        업데이트
+                        アップデート
                     </Li>
                 </LinkStyled>
             </Ul>

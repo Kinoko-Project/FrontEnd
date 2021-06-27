@@ -38,12 +38,12 @@ const SettingRouter = ({location, history}) => {
     const { data:DeviceId } = state.muchinDeviceId;
 
     if(!window.Kakao.Auth.getAccessToken()) {
-        alert('잘못된 접근입니다!');
+        alert('間違ったアクセスです!');
         return <Redirect to='/join'/>;
     }
 
     if(!DeviceId) {
-        alert('기기를 선택해주세요!');
+        alert('栽培機を選択してください！');
         return <Redirect to='/' />;
     }
 

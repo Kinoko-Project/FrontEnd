@@ -274,12 +274,12 @@ const Compare = ({goSlide, chart}) => {
                             </TitleBox>
                             <CardFlex>
                                 <CardBox>
-                                    <CardTitle>수확한 버섯 수</CardTitle>
-                                    <CardContent>{ch.kinokoCount}개</CardContent>
+                                    <CardTitle>取ったキノコの数</CardTitle>
+                                    <CardContent>{ch.kinokoCount}個</CardContent>
                                 </CardBox>
                                 <CardBox>
-                                    <CardTitle>총 재배일</CardTitle>
-                                    <CardContent>{ch.data.labels.length}일차</CardContent>
+                                    <CardTitle>栽培日</CardTitle>
+                                    <CardContent>{ch.data.labels.length}日目</CardContent>
                                 </CardBox>
                             </CardFlex>
                             <ExtraInfoBox>
@@ -297,11 +297,11 @@ const Compare = ({goSlide, chart}) => {
                                         </div>
                                         <div class="side back">
                                             <div class="description">
-                                                {ch.prg_water}회
+                                                {ch.prg_water}回
                                             </div>
                                         </div>
                                     </StatusCard>
-                                    {/* <StatusCard>
+                                    <StatusCard>
                                         <div class="side front">
                                             <div class="descrition">
                                                 <Sun /> 
@@ -309,10 +309,10 @@ const Compare = ({goSlide, chart}) => {
                                         </div>
                                         <div class="side back">
                                             <div class="description">
-                                                {ch.prg_sunshine}회
+                                                {ch.prg_sunshine}回
                                             </div>
                                         </div>
-                                    </StatusCard> */}
+                                    </StatusCard>
                                 </ButtonContainer>
                             </ExtraInfoBox>
                         </DescriptionBox>    
@@ -323,8 +323,8 @@ const Compare = ({goSlide, chart}) => {
             : 
             <>
                 <CompareBox style={{flexDirection: 'column'}} width={responsiveWidth}>
-                    <NoneCheckedMessage>체크 된 프로그램이 없습니다 !</NoneCheckedMessage>
-                    <ReturnButton onClick={goSlide}>돌아가기</ReturnButton>
+                    <NoneCheckedMessage>チェックされたプログラムがございません。</NoneCheckedMessage>
+                    <ReturnButton onClick={goSlide}>もどる</ReturnButton>
                 </CompareBox>
             </>
             }
