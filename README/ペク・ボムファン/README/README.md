@@ -19,7 +19,9 @@
  --- 
 
 ##　参考
+
 Chart.js：[chartjs][chartjs]
+
 amcharts：[amcharts][amcharts]
 
 [amcharts]: https://www.amcharts.com/docs/v4/ "amcharts"
@@ -27,10 +29,17 @@ amcharts：[amcharts][amcharts]
 
 ##  実装画面
 - しいたけ環境適用ページ
+
 ![Alt text](./md_img/pyogo.gif)
+
 - ベクファゴ環境適用ページ
+
 ![Alt text](./md_img/baekhwa.gif)
+
 - カスタム環境リスト
+
 ![Alt text](./md_img/customlist.gif)
+
 - 環境追加ページ
+
 ![Alt text](./md_img/customizing.gif)
