@@ -17,18 +17,20 @@
     };
   
  --- 
-<!-- ## ワイヤーフレーム
-- しいたけ環境適用ページ
-![ex_screenshot](./md_img/01.jpg)
-- 環境適用モーダル
-![ex_screenshot](./md_img/03.jpg)
-- カスタム環境リスト
-![ex_screenshot](./md_img/04.jpg)
-- 環境追加ページ（１）
-![ex_screenshot](./md_img/05.jpg)
-- 環境追加ページ（２）
-![ex_screenshot](./md_img/06.jpg) -->
+
+##　参考
+Chart.js：[chartjs][chartjs]
+amcharts：[amcharts][amcharts]
+
+[amcharts]: https://www.amcharts.com/docs/v4/ "amcharts"
+[chartjs]: https://www.chartjs.org/docs/latest/ "chartjs"
 
 ##  実装画面
-
-update soon..
+- しいたけ環境適用ページ
+![Alt text](./md_img/pyogo.gif)
+- ベクファゴ環境適用ページ
+![Alt text](./md_img/baekhwa.gif)
+- カスタム環境リスト
+![Alt text](./md_img/customlist.png)
+- 環境追加ページ
+![Alt text](./md_img/customizing.gif)
