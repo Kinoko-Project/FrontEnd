@@ -6,7 +6,7 @@
 > 湿度、温度を一定に維持する  
 > 水を一定の時間に一定の量をやる
 - 実際5人で実験したうえで五つの中三つにかびが生えて育てることが難しいと気づく
-![System Architecture](/README/img/pyogo.png)
+![System Architecture](/README/img/mold.png)
 
 ## Service Architecture
 ![System Architecture](/README/img/architecture.png)
