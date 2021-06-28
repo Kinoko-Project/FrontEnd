@@ -31,6 +31,6 @@ amcharts：[amcharts][amcharts]
 - ベクファゴ環境適用ページ
 ![Alt text](./md_img/baekhwa.gif)
 - カスタム環境リスト
-![Alt text](./md_img/customlist.png)
+![Alt text](./md_img/customlist.gif)
 - 環境追加ページ
 ![Alt text](./md_img/customizing.gif)
