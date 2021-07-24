@@ -158,7 +158,7 @@ export default function Farm(){
       console.log(num);
       setMushroomNum(num)
     }else{
-      setMushroomNum(num)
+      setMushroomNum(num);
     }
     
   },[isOkMushroomInfo])
