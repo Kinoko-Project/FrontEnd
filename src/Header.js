@@ -21,9 +21,8 @@ import HeaderMenu from './HeaderMenu' ;
 // 그림 리소스
 import logoHeight from './assets/logoHeight.png' ;
 import title from './assets/header_title.png' ;
-import { withCookies } from 'react-cookie';
 
-import { useKinokoDispatch, useKinokoState, getlogout, useLoginContext, getMuchineList ,getMuchineDeviceId} from './KinokoContext';
+import { useKinokoDispatch, getlogout, useLoginContext, getMuchineList ,getMuchineDeviceId} from './KinokoContext';
 // setIsOn -> 선택한 기기 정보 넣기 
 const Header = ({ location}) => {
 
@@ -31,19 +30,19 @@ const Header = ({ location}) => {
   const menuData = [ 
       {
           route : HOME,
-          text : '마이 팜'
+          text : 'MyFarm'
       },
       {
           route : SETTING,
-          text : '팜 환경설정'
+          text : 'Farm環境設定'
       },
       {
           route : FARM,
-          text : '팜 정보'
+          text : 'Farm情報'
       },
       {
           route : HELP,
-          text : '도움말'
+          text : 'HELP'
       }
   ] ;
   
@@ -55,11 +54,9 @@ const Header = ({ location}) => {
           FARM 
           : pathname.includes(SETTING) ? SETTING : pathname ;  
 
-  const state    = useKinokoState();
   const dispatch = useKinokoDispatch();
   const {isLogin, setIsLogin} = useLoginContext()
 
-  const { data: muchinList, loading, error } = state.muchinList; // state.data 를 users 키워드로 조회
 
   //로그아웃 
   const logoutBtn = ()=>{
@@ -115,7 +112,7 @@ const Header = ({ location}) => {
                           </HeaderMenu>
                   )) }
               </MenuContainer>
-              <LogoutBtn onClick={logoutBtn} >로그아웃</LogoutBtn>
+              <LogoutBtn onClick={logoutBtn} >ログアウト</LogoutBtn>
           </Container> 
       </>
   ) ;
@@ -164,7 +161,7 @@ const LogoutBtn = styled.button`
   right: 18px;
   margin: 5px auto;
   
-  width: 80px;
+  width: 120px;
   padding: 5px;
   border: 2px solid #333;
   border-radius: 14px;
@@ -183,8 +180,5 @@ const LogoutBtn = styled.button`
 }
 
 `;
-const loding_wrap = styled.div`
 
-
-`;
-export default withRouter(withCookies(Header)) ;
+export default withRouter(Header) ;
