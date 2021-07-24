@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useLayoutEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { Line } from 'react-chartjs-2';
 import styled, {css} from 'styled-components';
 import { flexAlign } from '../../Util/css';
@@ -40,7 +40,7 @@ const CompareBox = styled.div`
 // 차트의 전체 div
 const ChartContainer = styled.div`
     width: ${p=>p.width}px;
-    height: 400px;
+    height: 350px;
     transition-duration: 0.5s;
     transform: translate3d(-${props => props.x}px,0,0);
 `;
@@ -48,7 +48,7 @@ const ChartContainer = styled.div`
 // 차트 리스트 박스 div
 const ChartListBox = styled.div`
     width: ${props => props.width}px;
-    height: 400px;
+    height: 350px;
     overflow: hidden;
 `;
 
@@ -56,7 +56,7 @@ const ChartListBox = styled.div`
 const ChartContentBox = styled.div`
     float: left;
     width: 400px;
-    height: 100%;
+    height: 350px;
     display: flex;
     flex-direction: column;
     border: ${p=>p.toggle ? '2px solid #7FDBDA' : '2px solid #dddddd'};
@@ -190,7 +190,7 @@ const ChartSilder = () => {
                     
                     // 온도 데이터
                     data.temperature.forEach((temp,index) => {
-                        dateArr.push((index + 1) + "일차");
+                        dateArr.push((index + 1) + "日");
                         tempArr.push(temp.setting_value);
                     });
                     // 습도 데이터
@@ -271,7 +271,7 @@ const ChartSilder = () => {
     if(chart.length === 0) 
         return (
             <NoGraphSelected>
-                현재 생성된 커스텀 그래프가 없습니다!
+                現在作られたカスタムチャートがございません。
             </NoGraphSelected>
         );
 
@@ -286,7 +286,7 @@ const ChartSilder = () => {
                         <ChartContentBox toggle={ch.toggle} key={index}>
                             <ChartDescription>
                             <ProgramTitle>- {ch.prg_name} -</ProgramTitle>
-                            <CountContainer>{ch.prg_count}회 사용</CountContainer>
+                            <CountContainer>{ch.prg_count}回使用</CountContainer>
                             <RadioButton toggle={ch.toggle} onClick={() => onToggle(ch.prg_id)}>
                                 <CheckIcon opacity={ch.toggle} />
                             </RadioButton>
@@ -303,7 +303,7 @@ const ChartSilder = () => {
                         <ControlButton onClick={onLeft}><PreviousIcon /></ControlButton>
                         <ControlButton onClick={onRight}><NextIcon /></ControlButton>
                     </SlideControlContainer>
-                    <DetailButton onClick={changeComponent}>상세</DetailButton>
+                    <DetailButton onClick={changeComponent}>詳細</DetailButton>
                 </ControlContainer>
                 </>
             : 

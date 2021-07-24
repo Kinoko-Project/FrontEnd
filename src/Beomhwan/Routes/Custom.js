@@ -9,7 +9,10 @@ import {flexAlign} from '../../Util/css';
 import {deleteCustomProgram, getCustomProgramList, startCustomProgram} from '../api';
 import {useKinokoState} from '../../KinokoContext';
 
-
+const maintainTrueOptions = {
+    ...options,
+    maintainAspectRatio: true,
+}
 
 // 환경 그래프 반환
 const LineChart = ({chartData}) => {
@@ -17,7 +20,7 @@ const LineChart = ({chartData}) => {
     const ChartRef = useRef(null);
 
     return (
-        <Line data={chartData} options={options} ref={ChartRef}/>
+        <Line data={chartData} options={maintainTrueOptions} ref={ChartRef}/>
     ) ;
 };
 
@@ -93,8 +96,8 @@ const CustomStart = ({onStart, onRemove, prgid}) => {
 
     return (
         <>
-        <CustomButton onClick={() => onStart(prgid)}>적용</CustomButton>
-        <CustomButton onClick={() => onRemove(prgid)}>삭제</CustomButton>
+        <CustomButton onClick={() => onStart(prgid)}>適用</CustomButton>
+        <CustomButton onClick={() => onRemove(prgid)}>削除</CustomButton>
         </>
     );
 };
@@ -141,7 +144,7 @@ const Custom = () => {
                 
                 // 온도 데이터
                 data.temperature.forEach((temp,index) => {
-                    dateArr.push((index + 1) + "일차");
+                    dateArr.push((index + 1) + "日目");
                     tempArr.push(temp.setting_value);
                 });
                 // 습도 데이터
@@ -177,7 +180,7 @@ const Custom = () => {
             setModalInfo({
                 opacity: 1,
                 customId: prgid,
-                titleText: '이미 실행중인 프로그램이 있습니다!',
+                titleText: '実行中のプログラムがあります！',
                 modalTextfirst: '',
                 modalTextsecond: '',
                 confirm: ''
@@ -186,9 +189,9 @@ const Custom = () => {
             setModalInfo({
                 opacity: 1,
                 customId: prgid,
-                titleText: '주의!',
-                modalTextfirst: '한번 적용하면 도중에 취소가 불가능합니다.',
-                modalTextsecond: '적용하시겠습니까?',
+                titleText: '注意!',
+                modalTextfirst: '一度適用すると途中でキャンセルができません。',
+                modalTextsecond: '栽培を開始しますか？',
                 confirm: 'start'
             });
         }
@@ -201,7 +204,7 @@ const Custom = () => {
             ?   setModalInfo({
                     opacity: 1,
                     customId: prgid,
-                    titleText: '실행중인 프로그램은 삭제가 불가능합니다!',
+                    titleText: '実行中のプログラムは削除できません！',
                     modalTextfirst: '',
                     modalTextsecond: '',
                     confirm: ''
@@ -209,8 +212,8 @@ const Custom = () => {
             :   setModalInfo({
                     opacity: 1,
                     customId: prgid,
-                    titleText: '주의!',
-                    modalTextfirst: '정말 삭제하시겠습니까?',
+                    titleText: '注意！',
+                    modalTextfirst: '本当に削除しますか？',
                     modalTextsecond: '',
                     confirm: 'remove'
                 })
@@ -218,8 +221,8 @@ const Custom = () => {
             setModalInfo({
                 opacity: 1,
                 customId: prgid,
-                titleText: '주의!',
-                modalTextfirst: '정말 삭제하시겠습니까?',
+                titleText: '注意！',
+                modalTextfirst: '本当に削除しますか？',
                 modalTextsecond: '',
                 confirm: 'remove'
             })
@@ -239,8 +242,8 @@ const Custom = () => {
                         opacity: 1,
                         customId: prgid,
                         titleText: '',
-                        modalTextfirst: '적용 했습니다.',
-                        modalTextsecond: '프로그램이 종료 될 때까지 프로그램을 바꿀 수 없으니 주의해주세요.',
+                        modalTextfirst: '適用しました。',
+                        modalTextsecond: 'プログラムが終了するまでプログラムを変えることはできませんのでご注意ください。',
                         confirm: ''
                     });
                 }).catch(err => {
@@ -255,7 +258,7 @@ const Custom = () => {
                         opacity: 1,
                         customId: prgid,
                         titleText: '',
-                        modalTextfirst: '삭제 했습니다.',
+                        modalTextfirst: '削除しました。',
                         confirm: ''
                     });
                 }).catch(err => {
@@ -290,7 +293,7 @@ const Custom = () => {
                 <CustomGraphStyle key={index}>
                     <GraphTitle>- {ch.prg_name} -</GraphTitle>
                     <LineChart chartData={ch.data}/>
-                    <CountCard>사용 횟수 : {ch.prg_count}</CountCard>
+                    <CountCard>使用回数 : {ch.prg_count}</CountCard>
                     <CustomStart 
                         onStart={onStart}
                         onRemove={onRemove} 
@@ -303,8 +306,8 @@ const Custom = () => {
                 <ModalTextBox>{modalInfo.modalTextfirst}</ModalTextBox>
                 <ModalTextBox>{modalInfo.modalTextsecond}</ModalTextBox>
                 <ModalFooter>
-                    <Button onClick={() => CustomModalFunction(DeviceId.id, modalInfo.customId)}>확인</Button>
-                    <Button onClick={onClose}>취소</Button>
+                    <Button onClick={() => CustomModalFunction(DeviceId.id, modalInfo.customId)}>確認</Button>
+                    <Button onClick={onClose}>キャンセル</Button>
                 </ModalFooter>
             </Modal>
         </CustomBox>

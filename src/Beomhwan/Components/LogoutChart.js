@@ -1,6 +1,5 @@
 import React, {useLayoutEffect, useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
@@ -20,7 +19,7 @@ const LogoutChartComponent = ({loading, prgId, date}) => {
         let title = chart.titles.create();
         title.text = 'Now Loading...';
         title.fontSize = 20;
-        title.tooltipText = "최근 로그아웃 시간 ~ 로그인 1시간 전까지 표시됩니다.";
+        title.tooltipText = "最近ログアウト時間からログイン一時間前まで表示されます。";
         title.marginBottom = 20;
 
         chart.legend = new am4charts.Legend();
@@ -44,11 +43,11 @@ const LogoutChartComponent = ({loading, prgId, date}) => {
             ev.target.data = a;
 
             if(prgId === 0) {
-                chart.openModal('적용된 환경 프로그램이 없습니다.');
+                chart.openModal('適用されたプログラムがございません。');
             } else if(a.length === 0 && prgId > 0) {
-                chart.openModal('로그아웃 시간이 1시간 이내 입니다.');
+                chart.openModal('ログアウト時間が一時間以内です。');
             }
-            title.text = '로그아웃 기간 동안의 재배기 온도, 습도 변화';
+            title.text = 'ログアウト時間の栽培機温度、湿度変化';
         })
 
         // axis 생성
@@ -57,14 +56,14 @@ const LogoutChartComponent = ({loading, prgId, date}) => {
 
         let tempAxis = chart.yAxes.push(new am4charts.ValueAxis());
         tempAxis.dataFields.data = 'temp';
-        tempAxis.title.text = "온도 / 습도";
+        tempAxis.title.text = "温度 / 湿度";
 
         let humiAxis = chart.yAxes.push(new am4charts.ValueAxis());
         humiAxis.dataFields.data = 'humi';
 
         // series 생성
         let tempSeries = chart.series.push(new am4charts.LineSeries());
-        tempSeries.name = '온도';
+        tempSeries.name = '温度';
         tempSeries.dataFields.valueY = 'temp';
         tempSeries.dataFields.dateX = 'date';
         tempSeries.stroke = am4core.color('rgba(255,0,0,0.5)');
@@ -74,7 +73,7 @@ const LogoutChartComponent = ({loading, prgId, date}) => {
         tempSeries.tooltipText = '{dateX.formatDate("MM-dd HH:mm")} : {valueY}도';
 
         let humiSeries = chart.series.push(new am4charts.LineSeries());
-        humiSeries.name = '습도';
+        humiSeries.name = '湿度';
         humiSeries.dataFields.valueY = 'humi';
         humiSeries.dataFields.dateX = 'date';
         humiSeries.stroke = am4core.color('rgba(0,0,255,0.5)');
@@ -140,7 +139,7 @@ const LogoutChart = () => {
 
     // date 없을 시 null 반환
     if(!programInfo) {
-        return <>현재 환경 프로그램이 없습니다!</>;
+        return <>現在プログラムがございません。</>;
     }
 
     return (

@@ -8,9 +8,6 @@ import Select from '../Components/Select';
 import InputPrgName from '../Components/InputprgName';
 import {flexAlign} from '../../Util/css';
 import {BoxShadowTrick, SvgSize} from '../css/cssModule';
-import axios from 'axios';
-import {URL} from '../Util';
-import Modal from '../Components/Modal';
 import {useKinokoState} from '../../KinokoContext';
 import { addCustomProgram } from '../api';
 
@@ -37,16 +34,16 @@ export const CustomChart = ({Data, titleMsg}) => {
 
             // scrollbar 설정
             const scrollbar = new am4charts.XYChartScrollbar();
-            scrollbar.startGrip.tooltipText = "확대 및 축소가 가능합니다";
-            scrollbar.endGrip.tootipText = "확대 및 축소가 가능합니다";
-            scrollbar.thumb.tooltipText = "좌우로 이동 가능합니다";
+            scrollbar.startGrip.tooltipText = "拡大·縮小が可能です。";
+            scrollbar.endGrip.tootipText = "拡大·縮小が可能です。";
+            scrollbar.thumb.tooltipText = "左右に移動できます。";
             scrollbar.showSystemTooltip = false;
             console.dir(scrollbar);
             chart.current.scrollbarX = scrollbar;
 
             // X축 생성
             const categoryAxis = chart.current.xAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.title.text = "일차";
+            categoryAxis.title.text = "日目";
             categoryAxis.dataFields.category = "Date";
             categoryAxis.renderer.grid.template.disabled = true;
             categoryAxis.renderer.minGridDistance = 50;
@@ -84,7 +81,7 @@ export const CustomChart = ({Data, titleMsg}) => {
             const TempLabelBullet = TempSeries.bullets.push(new am4charts.LabelBullet());
             TempLabelBullet.strokeOpacity = 0;
             TempLabelBullet.stroke = am4core.color("#dadada");
-            TempLabelBullet.label.text = "{valueY.value.formatNumber('#.')}도";
+            TempLabelBullet.label.text = "{valueY.value.formatNumber('#.')}℃";
             TempLabelBullet.dy = -20;
 
             const TempBullet = TempSeries.bullets.create();
@@ -147,7 +144,7 @@ export const CustomChart = ({Data, titleMsg}) => {
             const TempColumnTemplate = TempSeries.columns.template;
             TempColumnTemplate.column.cornerRadiusTopLeft = 8;
             TempColumnTemplate.column.cornerRadiusTopRight = 8;
-            TempColumnTemplate.tooltipText = "{Date} : {Temperature}도";
+            TempColumnTemplate.tooltipText = "{Date} : {Temperature}℃";
             TempColumnTemplate.tooltipY = 0;
 
             const HumiColumnTemplate = HumiSeries.columns.template;
@@ -251,8 +248,8 @@ export const CustomChart = ({Data, titleMsg}) => {
 const ButtonBox = ({Add, Remove}) => {
     return (
         <>
-            <Button onClick={Remove}>1일 빼기</Button>
-            <Button onClick={Add}>1일 추가</Button>
+            <Button onClick={Remove}>1日抜き</Button>
+            <Button onClick={Add}>1日追加</Button>
         </>
     );
 }
@@ -260,7 +257,7 @@ const ButtonBox = ({Add, Remove}) => {
 // 전체 박스
 const CustomAddDiv = styled.div`
     width: 100%;
-    height: 500px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
 `;
@@ -386,27 +383,27 @@ const Add = ({history}) => {
         {
             Temperature: 20,
             Humidity: 80,
-            Date: 1 + "일차"
+            Date: 1 + "日目"
         },
         {
             Temperature: 20,
             Humidity: 80,
-            Date: 2 + "일차"
+            Date: 2 + "日目"
         },
         {
             Temperature: 20,
             Humidity: 80,
-            Date: 3 + "일차"
+            Date: 3 + "日目"
         },
         {
             Temperature: 20,
             Humidity: 80,
-            Date: 4 + "일차"
+            Date: 4 + "日目"
         },
         {
             Temperature: 20,
             Humidity: 80,
-            Date: 5 + "일차"
+            Date: 5 + "日目"
         },
     ]);
 
@@ -419,7 +416,7 @@ const Add = ({history}) => {
         let addData = {
             Temperature: 20,
             Humidity: 80,
-            Date: date.current + "일차"
+            Date: date.current + "日目"
         };
 
         setChartData(chartData => chartData.concat(addData));
@@ -430,7 +427,7 @@ const Add = ({history}) => {
     // 1일 빼기
     const Remove = () => {
         setChartData(
-            chartData.filter(ch => ch.Date !== (date.current - 1) + "일차")
+            chartData.filter(ch => ch.Date !== (date.current - 1) + "日目")
         );
         date.current > 1 ? date.current -= 1 : date.current = 1;
         console.dir(chartData);
@@ -470,18 +467,18 @@ const Add = ({history}) => {
             
             addCustomProgram(addParams).then(response => {
                 console.log(response);
-                alert('등록 성공했습니다!');
+                alert('登録成功しました！');
                 history.push('/setting/custom');
             }).catch(e => {console.error(e);});
         } catch(e) {
             if(e.name === 'TempErrorUp') {
-                alert('온도 제한 27도를 넘었습니다!');
+                alert('温度制限27度を超えました！');
             } 
             else if(e.name === 'TempErrorDown') {
-                alert('온도 제한 17도보다 낮습니다!');
+                alert('温度制限17度より低いです！');
             }
             else if(e.name === 'NameError') {
-                alert('프로그램 이름을 입력해주세요!');
+                alert('プログラム名を入力してください!');
             }
         }
     };
@@ -541,16 +538,16 @@ const Add = ({history}) => {
                 </SelectedCustom>
             </CustomAddDiv>
             <SettingContainer>
-                <CustomChart Data={chartData} titleMsg="그래프를 드래그해서 온도, 습도를 조절해보자!" />
+                <CustomChart Data={chartData} titleMsg="チャートをドラグして温度、湿度をカスタムしよう！" />
                 <SettingBox>
                 <CheckBox>
                     <CheckMenu>
-                        <WarningText>온도는 35도 이하로 제한됩니다.</WarningText>
+                        <WarningText>温度は17~27℃で制限します。</WarningText>
                         {chartData.map((ch,index) => {
                             if(ch.Temperature > 27)
-                                return <LogBox>{ch.Date} 온도가 27도 이상입니다!</LogBox>
+                                return <LogBox>{ch.Date} 温度が27℃以上です！</LogBox>
                             else if(ch.Temperature < 17)
-                                return <LogBox>{ch.Date} 온도가 17도 이하입니다!</LogBox>
+                                return <LogBox>{ch.Date} 温度が27℃以下です！</LogBox>
                         })}
                     </CheckMenu>
                     <Menu2>
@@ -568,7 +565,7 @@ const Add = ({history}) => {
                 </CheckBox>
                 <SettingName>
                     <InputPrgName onChange={onChange} />
-                    <Button onClick={Save}>저장</Button>
+                    <Button onClick={Save}>保存</Button>
                 </SettingName>
                 </SettingBox>
             </SettingContainer>

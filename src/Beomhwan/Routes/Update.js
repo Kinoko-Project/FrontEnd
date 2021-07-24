@@ -2,12 +2,11 @@ import React, {useRef, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {Line} from 'react-chartjs-2';
 import {CustomChart as UpdateCustomChart, WarningText, SettingBox, Button, LogBox, CheckBox, CheckMenu, Menu2, SetDate, SetWaterSun, SettingName} from './Add';
-import axios from 'axios';
 import * as Description from '../Components/Compare';
-import { URL, setChartjsDataset, options } from '../Util';
-import {getRunningChartName ,getRunningChartInfo, getKinoko, updateCustomProgram} from '../api';
+import { setChartjsDataset, options } from '../Util';
+import {getRunningChartInfo, getKinoko, updateCustomProgram} from '../api';
 import Modal from '../Components/Modal';
-import {Button as ModalButton, ModalTitleBox, ModalFooter} from '../Components/ModalContent';
+import {Button as ModalButton, ModalTitleBox} from '../Components/ModalContent';
 import { useKinokoState } from '../../KinokoContext';
 import Select from '../Components/Select';
 import {Redirect} from 'react-router-dom';
@@ -103,7 +102,7 @@ const Update = ({cookies, history}) => {
                     sunshine: res.sunshine
                 });
                 setData(chartData => chartData.concat({
-                    Date: extendDate.current + '일차',
+                    Date: extendDate.current + '日目',
                     Temperature: 20,
                     Humidity: 80
                 }));
@@ -113,7 +112,7 @@ const Update = ({cookies, history}) => {
                 let humi = [];
                 let grow = [];
                 await res.humidity.map((ch,i) => {
-                    date.push((i + 1) + '일차');
+                    date.push((i + 1) + '日目');
                     temp.push(res.temperature[i].setting_value);
                     humi.push(ch.setting_value);
                     if(res.growthRate.length !== 0) {
@@ -133,7 +132,7 @@ const Update = ({cookies, history}) => {
         let addData = {
             Temperature: 20,
             Humidity: 80,
-            Date: extendDate.current + "일차"
+            Date: extendDate.current + "日目"
         };
 
         setData(chartData => chartData.concat(addData));
@@ -144,7 +143,7 @@ const Update = ({cookies, history}) => {
     // 1일 빼기
     const Remove = () => { 
         setData(
-            data.filter(ch => ch.Date !== extendDate.current + "일차")
+            data.filter(ch => ch.Date !== extendDate.current + "日目")
         );
         extendDate.current > limitDate.current ? extendDate.current -= 1 : extendDate.current = limitDate.current; // 지정된 일차에 맞춰서
         console.dir(data);
@@ -227,16 +226,16 @@ const Update = ({cookies, history}) => {
                 setModalInfo({
                     opacity: 1,
                     customId: programInfo[0].id,
-                    titleText: '프로그램을 성공적으로 연장했습니다.',
+                    titleText: 'プログラムを成功的に延長しました。',
                     modalTextfirst: '',
                 });
             })
         }catch(e) {
             if(e.name === 'TempErrorUp') {
-                alert('온도 제한 27도를 넘었습니다!');
+                alert('温度制限27℃を超えました！');
             } 
             else if(e.name === 'TempErrorDown') {
-                alert('온도 제한 17도보다 낮습니다!');
+                alert('温度制限17℃より低いです！');
             }
         }
     }
@@ -254,7 +253,7 @@ const Update = ({cookies, history}) => {
     if(loading) return <LoadingContainer>Loading...</LoadingContainer>
 
     if(!programInfo) {
-        alert('현재 진행중인 프로그램이 없습니다! 환경을 ');
+        alert('現在実行中のプログラムがございません！');
         return (<Redirect to="/setting/custom" />);
     }
 
@@ -272,12 +271,12 @@ const Update = ({cookies, history}) => {
                             </Description.TitleBox>
                             <Description.CardFlex>
                                 <Description.CardBox>
-                                    <Description.CardTitle>수확한 버섯 수</Description.CardTitle>
-                                    <Description.CardContent>{kinokoCount}개</Description.CardContent>
+                                    <Description.CardTitle>取ったキノコの数</Description.CardTitle>
+                                    <Description.CardContent>{kinokoCount}個</Description.CardContent>
                                 </Description.CardBox>
                                 <Description.CardBox>
-                                    <Description.CardTitle>총 재배일</Description.CardTitle>
-                                    <Description.CardContent>{limitDate.current}일차</Description.CardContent>
+                                    <Description.CardTitle>栽培日</Description.CardTitle>
+                                    <Description.CardContent>{limitDate.current}日目</Description.CardContent>
                                 </Description.CardBox>
                             </Description.CardFlex>
                             <Description.ExtraInfoBox>
@@ -290,7 +289,7 @@ const Update = ({cookies, history}) => {
                                         </div>
                                         <div class="side back">
                                             <div class="description">
-                                                {optionCounts.water}회
+                                                {optionCounts.water}回
                                             </div>
                                         </div>
                                     </Description.StatusCard>
@@ -302,7 +301,7 @@ const Update = ({cookies, history}) => {
                                         </div>
                                         <div class="side back">
                                             <div class="description">
-                                                {optionCounts.sunshine}회
+                                                {optionCounts.sunshine}回
                                             </div>
                                         </div>
                                     </Description.StatusCard>
@@ -319,18 +318,18 @@ const Update = ({cookies, history}) => {
                 <SettingBox>
                 <CheckBox>
                     <CheckMenu>
-                        <WarningText>온도는 35도 이하로 제한 됩니다.</WarningText>
+                        <WarningText>温度は17~27℃で制限します。</WarningText>
                         {data.map(ch => {
                             if(ch.Temperature > 27)
-                                return <LogBox>{ch.Date} 온도가 27도 이상입니다!</LogBox>
+                                return <LogBox>{ch.Date} 温度が27℃以上です！</LogBox>
                             else if(ch.Temperature < 17)
-                                return <LogBox>{ch.Date} 온도가 17도 이하입니다!</LogBox>
+                                return <LogBox>{ch.Date} 温度が27℃以下です！</LogBox>
                         })}
                     </CheckMenu>
                     <Menu2>
                         <SetDate>
-                            <Button onClick={Remove}>1일 제거</Button>
-                            <Button onClick={Add}>1일 추가</Button>
+                            <Button onClick={Remove}>1日抜き</Button>
+                            <Button onClick={Add}>1日追加</Button>
                         </SetDate>
                         <SetWaterSun>
                             <Select 
@@ -342,7 +341,7 @@ const Update = ({cookies, history}) => {
                     </Menu2>
                 </CheckBox>
                     <SettingName>
-                        <Button onClick={onSubmit}>적용하기</Button>
+                        <Button onClick={onSubmit}>適用する</Button>
                     </SettingName>
                 </SettingBox>
             </SettingBox>

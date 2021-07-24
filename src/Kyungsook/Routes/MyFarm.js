@@ -64,7 +64,6 @@ export default function MyFarm(){
   // 재배기 온도, 습도 값 저장
   const [temperature, setTemperature] = useState(24)
   const [humidity, setHumidity] = useState(72)
-
   //가짜 데이터
   const [value, setValue] = useState(false)
 
@@ -211,7 +210,7 @@ export default function MyFarm(){
       console.log('startday',StartDay,'day',day,'start',start);
       
       //소캣 통신을 위한 변수 / 프로그램 id가 있으면 소캣 통신 합니다. 
-      setValue(false)
+      setValue(true)
     }
     setStartMushroom(parseInt(ingDay))
     // 오늘 자란 버섯 수
@@ -267,12 +266,16 @@ export default function MyFarm(){
      if(data.temperature != null && data.humidity != null){
          setTemperature(parseInt(data.temperature))
          setHumidity(parseInt(data.humidity))
+     }else {
+        setTemperature(24)
+         setHumidity(71)
+
      }
      
      });
     
      return () => { // 화면 끝
-      // socket.disconnect() ;
+      socket.disconnect() ;
       setValue(false)
       console.log('myfarm 끝');
      }

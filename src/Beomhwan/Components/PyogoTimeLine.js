@@ -25,7 +25,7 @@ const PyogoTimeLine = () => {
         timeline.yAxisInnerRadius = am4core.percent(-25);
         timeline.maskBullets = false;
         let title = timeline.titles.create();
-        title.text = '표고버섯 환경 프로그램 로드맵';
+        title.text = 'しいたけ環境プログラムロードマップ';
         title.fontSize = 20;
 
         let colorSet = new am4core.ColorSet();
@@ -33,32 +33,32 @@ const PyogoTimeLine = () => {
 
         timeline.data = [
             {
-                "category": "재배 기간",
+                "category": "栽培期間",
                 "start": new Date(),
                 "end": new Date().setDate(new Date().getDate() + 15),
                 "color": colorSet.getIndex(0),
-                "task": "버섯 재배"
+                "task": "キノコ栽培"
             }, 
             {
-                "category": "예상 수확일",
+                "category": "予想収穫日",
                 "start": new Date().setDate(new Date().getDate() + 5),
                 "end": new Date().setDate(new Date().getDate() + 6),
                 "color": colorSet.getIndex(5),
-                "task": "예상 수확일"
+                "task": "予想収穫日"
             }, 
             {
-                "category": "예상 수확일",
+                "category": "予想収穫日",
                 "start": new Date().setDate(new Date().getDate() + 10),
                 "end": new Date().setDate(new Date().getDate() + 11),
                 "color": colorSet.getIndex(10),
-                "task": "예상 수확일"
+                "task": "予想収穫日"
             }, 
             {
-                "category": "예상 수확일",
+                "category": "予想収穫日",
                 "start": new Date().setDate(new Date().getDate() + 14),
                 "end": new Date().setDate(new Date().getDate() + 15),
                 "color": colorSet.getIndex(15),
-                "task": "예상 수확일"
+                "task": "予想収穫日"
             }, 
         ];
 
