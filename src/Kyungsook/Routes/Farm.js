@@ -164,7 +164,8 @@ export default function Farm(){
   },[isOkMushroomInfo])
    
 
-  if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
+  // if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
+
   if(loadingProgramInfo) return (
     <div className='farm-wrap'> 
       <div className='inner'>Loading....</div>

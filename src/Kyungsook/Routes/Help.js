@@ -36,7 +36,7 @@ const Help = (props) => {
 
     },[])
 
-    if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
+    // if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
     if(!mushroomList) {
         return(
             <div className='help-wrap'>

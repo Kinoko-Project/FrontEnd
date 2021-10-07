@@ -89,8 +89,8 @@ const Header = ({ location}) => {
     }
   },[isLogin])
 
-  if(window.Kakao.Auth.getAccessToken()) setIsLogin(true)
-  if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
+  if('1234') setIsLogin(true)
+//   if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
   
 
   return (
