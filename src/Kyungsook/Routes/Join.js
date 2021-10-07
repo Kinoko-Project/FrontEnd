@@ -37,10 +37,10 @@ export default function Join(){
 
   //로그인
   const login = (res) =>{
-    localStorage.setItem('userInfo',JSON.stringify(res.profile))
     console.log("kakao",res);
-    getJoinAccount(res.profile)
-    swal(`いらっしゃいませ ${res.profile.properties.nickname}さま!:)`); //window 창
+    // localStorage.setItem('userInfo',JSON.stringify(res.profile))
+    // getJoinAccount(res.profile)
+    // swal(`いらっしゃいませ ${res.profile.properties.nickname}さま!:)`); //window 창
   }
 
   //회원가입 api
@@ -80,7 +80,7 @@ export default function Join(){
  
 
   // token 없으면 로그인 페이지로 이동
-  if( window.Kakao.Auth.getAccessToken() || isLogin )return <Redirect to='/' />
+  // if( window.Kakao.Auth.getAccessToken() || isLogin )return <Redirect to='/' />
 
   return(
     <>

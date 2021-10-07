@@ -286,7 +286,7 @@ export default function MyFarm(){
 
 
   
-  if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
+  // if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
   
   return(
       <>
