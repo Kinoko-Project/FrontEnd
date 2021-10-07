@@ -50,7 +50,6 @@ export default function Join(){
   async function getLoginAccount( data ){
     
     await axios.post(`${AWS_URL}${LOGIN}`,{
-      
       token: '1234',
       id: '1576739768'
     }).then(response =>{
@@ -76,7 +75,7 @@ export default function Join(){
           </div>
 
           <div className='logo-img'>
-              <p> マッシュマッシュプロジェクトへようこそ!　</p>
+              <p> 맛슈 맛슈 프로젝트에 오신 것을 환경합니다!　</p>
               <Swiper 
                 effect={'cube'} 
                 grabCursor={true} 
@@ -99,7 +98,7 @@ export default function Join(){
                 jsKey={'f8f1fac656c36d6630bc59140a724fb5'}
                 onSuccess={(res) => {login(res)}}
             >
-              <p className='kakao-font'>KAKAOでログイン</p>
+              <p className='kakao-font'>KAKAO로그인</p>
             </KakaoLogin>
           </div>
         </div>

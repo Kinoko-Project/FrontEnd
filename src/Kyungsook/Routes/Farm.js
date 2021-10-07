@@ -104,7 +104,7 @@ export default function Farm(){
       getProgramInfo(dispatch,DeviceId.id)
       getMushroomCluster(dispatch,DeviceId.id)
     }else {
-      alert('選択した栽培機がありません。')
+      alert('선택한 재배기가 없습니다..')
     }
 
   },[isOkDeviceId,dispatch,DeviceId])
@@ -183,7 +183,7 @@ export default function Farm(){
       <div className='farm-left'>
         <div className='three-wrap'>
           
-          <div className="text">2Dシイタケ</div>
+          <div className="text">2D표고버섯</div>
           <div className='img2D'>
             {isOkMushroomCluster === 202 && (
             <Swiper effect={'cube'} grabCursor={true} cubeEffect={{
@@ -212,11 +212,11 @@ export default function Farm(){
               isOkMushroomRotation === 202 && (
                 mushroomRotation.map(data =>(
                   data.mr_status ==='growing'?
-                  <button onClick={() => onGetMushroom(data)}>成長したシイタケ</button>
+                  <button onClick={() => onGetMushroom(data)}>성장한버섯</button>
                 : data.mr_status ==='harvest' ?
-                  <button onClick={() => onGetMushroom(data)}>収穫可能</button>
+                  <button onClick={() => onGetMushroom(data)}>수확가능</button>
                 :data.mr_status ==='whiteflower'?
-                  <button onClick={() => onGetMushroom(data)}>花どんこ</button>
+                  <button onClick={() => onGetMushroom(data)}>백화고</button>
                 : null
                 ))
               )
@@ -237,18 +237,18 @@ export default function Farm(){
 
           <div className='farm-info-wrap'>
             <div className='info-left'>
-                <h1>ギャラリー</h1>
+                <h1>갤러리</h1>
                 
                 <Swiper pagination={{
                   "type": "progressbar"
                   }} navigation={true} className="mySwiper">
                     {/* 해당 각도에 버섯 정보가 없을 때 */}
                   {isOkMushroomRotation === 444 && (
-                  <SwiperSlide>情報なし</SwiperSlide>   
+                  <SwiperSlide>정보없음</SwiperSlide>   
                   )}  
                   {/* 해당 각도에 버섯 정보가 있을 때*/}
                   {isOkMushroomRotation === 202 && !mushroomGrowing ? 
-                  <SwiperSlide>ボタンを押してみてください！</SwiperSlide> 
+                  <SwiperSlide>버튼을 눌러보세요!</SwiperSlide> 
                   : 
                   <>
                   {isOkMushroomHistory === 202 && (
@@ -261,44 +261,44 @@ export default function Farm(){
                 </Swiper>
                 <div className='mushroom-info'>
                   <div className='grow-box'>
-                    <div className='text2'>成長率</div>
+                    <div className='text2'>성장률</div>
                     <spna className='text3'>{mushroomGrowing ? mushroomGrowing.growing : 0}%</spna>
                   </div>
                   <div className='grow-box'>
-                    <div className='text2'>シイタケの長さ</div>
+                    <div className='text2'>표고버섯길이</div>
                     <spna className='text3'>{mushroomGrowing ? mushroomGrowing.cm : 0}cm</spna>
                   </div>
                 </div>
             </div>
             <div className='info-right'>
               <div className='info-text-wrap'>
-                <h2>Todayキノコ</h2>
-                <span>{mushroomNum && mushroomNum[5]}つ</span>
+                <h2>Today버섯</h2>
+                <span>{mushroomNum && mushroomNum[5]}개</span>
               </div>
 
               <div className='info-text-wrap'>
-                <h2>花ドン</h2>
-                <span>{mushroomNum && mushroomNum[2]}つ</span>
+                <h2>백화고</h2>
+                <span>{mushroomNum && mushroomNum[2]}개</span>
               </div>
 
               <div className='info-text-wrap'>
-                <h2>収穫できキノコ</h2>
-                <span>{mushroomNum && mushroomNum[1]}つ</span>
+                <h2>수확가능한버섯</h2>
+                <span>{mushroomNum && mushroomNum[1]}개</span>
               </div>
 
               <div className='info-text-wrap'>
-                <h2>成長中キノコ</h2>
-                <span>{mushroomNum && mushroomNum[0]}つ</span>
+                <h2>성장중인버섯</h2>
+                <span>{mushroomNum && mushroomNum[0]}개</span>
               </div>
 
               <div className='info-text-wrap'>
-                <h2>収穫しキノコ</h2>
-                <span>{mushroomNum && mushroomNum[3]}つ</span>
+                <h2>수확한버섯</h2>
+                <span>{mushroomNum && mushroomNum[3]}개</span>
               </div>
 
               <div className='info-text-wrap'>
-                <h2>すべてキノコ</h2>
-                <span>{mushroomNum && mushroomNum[4]}つ</span>
+                <h2>모든버섯</h2>
+                <span>{mushroomNum && mushroomNum[4]}개</span>
               </div>
 
             </div>

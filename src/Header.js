@@ -34,11 +34,11 @@ const Header = ({ location}) => {
       },
       {
           route : SETTING,
-          text : 'Farm環境設定'
+          text : 'Farm환경설정'
       },
       {
           route : FARM,
-          text : 'Farm情報'
+          text : 'Farm정보'
       },
       {
           route : HELP,
@@ -112,7 +112,7 @@ const Header = ({ location}) => {
                           </HeaderMenu>
                   )) }
               </MenuContainer>
-              <LogoutBtn onClick={logoutBtn} >ログアウト</LogoutBtn>
+              <LogoutBtn onClick={logoutBtn} >로그아웃</LogoutBtn>
           </Container> 
       </>
   ) ;

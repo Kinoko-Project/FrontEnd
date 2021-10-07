@@ -295,29 +295,29 @@ export default function MyFarm(){
             {/* 재배기 등록 모달 */}
             <Modal open={ modalOpen } close={ closeModal } header="재배기 등록" onClickBtn={onClickBtn} isOkPwd={isOkPwd}>
             <div>
-                    <input  name='keyOnchange' className='modalbtn' size='30' onChange={onChange} placeholder='栽培機のピン番号を入力してください'/>
+                    <input  name='keyOnchange' className='modalbtn' size='30' onChange={onChange} placeholder='재배기의 핀 번호를 입력하세요'/>
                     <button name='key' type="button" onClick={onClickBtn} className='ok-btn'>확인</button>
-                    {errKey && <div>*失敗しました...</div>}
-                    { isOkKey === 202 && <div>*成功しました!</div>}
-                    <input name='pwdOnchange' className='modalbtn' size='30' onChange={onChange} placeholder='栽培機パスワードを入力してください' />
+                    {errKey && <div>*실패했습니다...</div>}
+                    { isOkKey === 202 && <div>*성공했습니다!</div>}
+                    <input name='pwdOnchange' className='modalbtn' size='30' onChange={onChange} placeholder='재배기 비밀번호를 입력하세요' />
                     <button name='pwd' type="button" onClick={onClickBtn} className='ok-btn'>확인</button>
-                    {errPwd && <div>*失敗しました...</div>}
-                    {isOkPwd === 202 && <div>*成功しました!</div>}
-                    <input  name='nickName' className='modalbtn' size='30' onChange={onChange} placeholder='栽培器の名前を入力してください'  />
-                    {errDevice && <div>*失敗しました...{errDevice.response.data}</div>}
-                    {isOkDevice === 202 && <div>*成功しました!</div>}
+                    {errPwd && <div>*실패했습니다...</div>}
+                    {isOkPwd === 202 && <div>*성공했습니다!</div>}
+                    <input  name='nickName' className='modalbtn' size='30' onChange={onChange} placeholder='재배기 이름을 입력하세요'  />
+                    {errDevice && <div>*실패했습니다...{errDevice.response.data}</div>}
+                    {isOkDevice === 202 && <div>*성공했습니다!</div>}
                 </div>
             </Modal>
 
-            <ModalDel open={ modalDelOpen } close={ closeModalDel }  header="栽培機を削除します。"  onSetMuchin={onSetMuchin} onDelMuchin={onDelMuchin}>
+            <ModalDel open={ modalDelOpen } close={ closeModalDel }  header="재배기를 삭제합니다."  onSetMuchin={onSetMuchin} onDelMuchin={onDelMuchin}>
             <div>
                 <div>
-                    <div className="textStyle">「使用」および 「削除」 を選択してください。</div>
+                    <div className="textStyle"> 사용 및 삭제를 선택해주세요.</div>
                     <br/>
                     <br/>
-                    <div className="textStyle"><span className="text">*注意事項</span></div>
-                    <div className="textStyle">その栽培器を削除した場合、以前に記録された情報は</div>
-                    <div className="textStyle">「すべて」削除されます。</div>
+                    <div className="textStyle"><span className="text">*주의사항</span></div>
+                    <div className="textStyle">해당 재배기를 삭제할 경우 이전에 기록된 정보는</div>
+                    <div className="textStyle">"모두"삭제됩니다.</div>
                 </div>
               </div>
             </ModalDel>
@@ -325,7 +325,7 @@ export default function MyFarm(){
 
             <div className='myfarm-left'>
               <div className='btn-group'>
-                <div className='muchine-title'><span>栽培機管理</span></div>
+                <div className='muchine-title'><span>재배기 관리</span></div>
                 <button className='muchine-btn' onClick={openModal}> <span>+</span> </button>
                 {
                   muchinList && muchinList.map( (obj)=>(
@@ -337,14 +337,14 @@ export default function MyFarm(){
 
             <div className='myfarm-right'>
               <div className='right-wrap'>
-                {nodivice && <span >登録された栽培器がありません。栽培器を登録してください</span>}
+                {nodivice && <span >등록된 재배기가 없습니다.재배기를 등록하세요</span>}
                 {loading && <span >Loading...</span>}
                 
-                {!nodivice && !loading && isOkDeviceId !==202 && <span >選択された栽培器がありません。栽培器を選択してください</span>}
+                {!nodivice && !loading && isOkDeviceId !==202 && <span >선택된 재배기가 없습니다.재배기를 선택해주세요</span>}
                 {!loading && !nodivice && loadingDeviceId  && <span >Loading...</span>}
                 {!loading && !nodivice && isOkDeviceId ===202 &&!loadingDeviceId  && loadingProgramInfo && <span >Loading...</span>}
                 
-                {!nodivice && !loading && isOkDeviceId === 202 &&  isOkProgramInfo !== 202 && !loadingProgramInfo && <span>選択されたプログラムがありません。ファーム環境設定からプログラムを選択してください</span>}
+                {!nodivice && !loading && isOkDeviceId === 202 &&  isOkProgramInfo !== 202 && !loadingProgramInfo && <span>선택된 프로그램이 없습니다.팜환경설정에서 프로그램을 선택하세요.</span>}
                 {!loading && !nodivice && !loadingDeviceId && isOkProgramInfo === 202  && startLoading &&<span>Loading...</span>}
                 {/* !nodivice &&  임의로 지정*/}
                 
@@ -359,8 +359,8 @@ export default function MyFarm(){
 
                     <div className='soket'> 
                       <div className='soket-img'>
-                        <div className='soket-title'><span>リアルタイム映像</span></div>
-                        {image ? <img src={image} alt='リアルタイム通信'/> : <div> 現在、栽培機がカメラを使用しています。<br/>少し待ってください。</div>}
+                        <div className='soket-title'><span>실시간 영상</span></div>
+                        {image ? <img src={image} alt='リアルタイム通信'/> : <div> 현재 재배기가 카메라를 사용하고 있습니다.<br/>잠시만 기다려주세요.</div>}
 
                       </div>
                     </div>
@@ -371,24 +371,24 @@ export default function MyFarm(){
                         {/* 온도 습도 */}
                         <div className='info-left'>
                             <div className = "progress">
-                              <span>温度</span>
+                              <span>온도</span>
                               <Progress color={'secondary'} value={temperature} name={'온도'}/>
                             </div>    
 
                             <div className = "progress">
-                              <span>湿度</span>
+                              <span>습도</span>
                               <Progress value={humidity}/>
                             </div>       
                         </div>
 
                         <div className='info-right'>
                           <div className='today-box'>
-                            <div className='value1'>進行中のプログラム</div>
+                            <div className='value1'>진행 중인 프로그램</div>
                             <div className='value2'>{isOkProgramInfo === 202 && programInfo[0].prg_name}</div>
                           </div>
                           <div className='today-box'>
                             <div className='value1'>Today</div>
-                            <div className='value2'>{startMushroom ? startMushroom : 0}日目</div>
+                            <div className='value2'>{startMushroom ? startMushroom : 0}일째</div>
                           </div>
                         </div>
 
@@ -399,20 +399,20 @@ export default function MyFarm(){
                       <div className='info-bottom'>
 
                         <div className='today-info'>
-                          <h3>  今日育ったキノコの数 </h3>
-                          <span className='today-growth'>{todayMushroom ? todayMushroom : 0}つ</span>
+                          <h3>  오늘 자란 버섯의 수 </h3>
+                          <span className='today-growth'>{todayMushroom ? todayMushroom : 0}개</span>
                         </div>
 
                         <div className='today-grow'>
                           {harvest ? 
                           (
                             <>
-                              <h3>収穫可能なシイタケがあります！</h3>
+                              <h3>수확 가능한 표고버섯이 있습니다!</h3>
                               <img src={farmer} alt='farmer' className='farmer' />
                             </>
                           ):
                             <>
-                              <h3>まだ、収穫できるシイタケがありません。。。</h3>
+                              <h3>아직 수확할 수 있는 표고버섯이 없습니다...</h3>
                             </>
                           }
                           
@@ -421,7 +421,7 @@ export default function MyFarm(){
 
                         <div className='from-move'> 
                           <Link to="/farm">
-                            <span className='move'>Farmページに移動</span>
+                            <span className='move'>Farm 페이지로 이동</span>
                           </Link>
                         </div>
                         
