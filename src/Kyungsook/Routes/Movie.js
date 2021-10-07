@@ -22,7 +22,7 @@ import SwiperCore, {
 SwiperCore.use([Pagination,Navigation]);
 
 export default function Movie(){
-  if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
+  // if(!window.Kakao.Auth.getAccessToken()) return <Redirect to='/join'/>
 
   return (
     <div className='movie-wrap'>
@@ -39,7 +39,7 @@ export default function Movie(){
               </video>
 
             <div className='play-wrap'>
-              <a  className='btn-value' href={videoMushroom} download="Mushroom"> ダウンロード </a>
+              <a  className='btn-value' href={videoMushroom} download="Mushroom"> 다운로드 </a>
             </div>
           </SwiperSlide>
 
