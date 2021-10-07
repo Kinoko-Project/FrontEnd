@@ -38,7 +38,8 @@ export async function getLogoutAccount( ){
   const response = await axios.put(
     `${AWS_URL}${LOGOUT}`,
     // {token: window.Kakao.Auth.getAccessToken()}
-    {token: window.Kakao.Auth.getAccessToken()}
+    // {token: window.Kakao.Auth.getAccessToken()}
+    {token: '1234'}
   )
   return response.data
 }
@@ -47,7 +48,8 @@ export async function getMachineList(){
   const response = await axios.get(`${AWS_URL}${MACHINE_LIST}`,{
     params:{
       // token: window.Kakao.Auth.getAccessToken()
-      token: window.Kakao.Auth.getAccessToken()
+      // token: window.Kakao.Auth.getAccessToken()
+      token:'1234'
     }
   });
 
@@ -58,7 +60,8 @@ export async function getMachineDeviceId(){
   const response = await axios.get(`${AWS_URL}${MACHINE_ID}`,{
     params:{
       // token: window.Kakao.Auth.getAccessToken()
-      token: window.Kakao.Auth.getAccessToken()
+      // token: window.Kakao.Auth.getAccessToken()
+      token: '1234'
     }
   });
 
@@ -93,7 +96,8 @@ export async function getMachineMakeDevice({pin,pw,machineName}){
       pw : pw,
       machineName : machineName,
       // token: window.Kakao.Auth.getAccessToken()
-      token: window.Kakao.Auth.getAccessToken()
+      // token: window.Kakao.Auth.getAccessToken()
+      token: '1234'
   });
 
   return response.data
@@ -103,7 +107,8 @@ export async function getMachineSetting(id){
   const response = await axios.put(`${AWS_URL}${MUCHIN_SETTING}`,{
       id : id,
         // token: window.Kakao.Auth.getAccessToken()
-      token: window.Kakao.Auth.getAccessToken()
+      // token: window.Kakao.Auth.getAccessToken()
+      token: '1234'
   });
   return response.data
 }

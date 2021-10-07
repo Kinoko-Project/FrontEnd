@@ -38,37 +38,21 @@ export default function Join(){
   //로그인
   const login = (res) =>{
     console.log("kakao",res);
-    // localStorage.setItem('userInfo',JSON.stringify(res.profile))
+    localStorage.setItem('userInfo',JSON.stringify(res.profile))
     // getJoinAccount(res.profile)
-    // swal(`いらっしゃいませ ${res.profile.properties.nickname}さま!:)`); //window 창
+    getLoginAccount();
+    swal(`いらっしゃいませ ${res.profile.properties.nickname}さま!:)`); //window 창
   }
 
-  //회원가입 api
-  async function getJoinAccount( data ){
-    
-    await axios.post(`${AWS_URL}${REGISTER}`,{
-      id: data.id,
-      email: data.kakao_account.email
-    }).then(response =>{
-      console.log("회원가입 성공",response);
-      swal(`会員登録に成功しました。 いらっしゃいませ ${data.profile.properties.nickname}さま!:)`); //window 창
-      getLoginAccount(data)
-    }).catch(e=>{
-      let message = e.response.data
-      if (message === '이미 가입된 계정입니다.'){
-        getLoginAccount(data)
-      }
-    })
-  
-  }
+
 
   //로그인 api
   async function getLoginAccount( data ){
     
     await axios.post(`${AWS_URL}${LOGIN}`,{
-      // token: window.Kakao.Auth.getAccessToken(),
-      token: window.Kakao.Auth.getAccessToken(),
-      id: data.id
+      
+      token: '1234',
+      id: '1576739768'
     }).then(response =>{
       console.log("로그인 성공",response);
       localStorage.setItem('isLogin', '로그인성공')
